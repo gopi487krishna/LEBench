@@ -933,7 +933,7 @@ void send_test(struct timespec *timeArray, int iter, int *i) {
 
 		read(fds2[0], &r, 1);
 
-		remove(sock);
+		remove(server_addr.sun_path);
 		close(fd_server);
 		close(fd_connect);
 		close(fds1[1]);
@@ -1052,7 +1052,7 @@ void recv_test(struct timespec *timeArray, int iter, int *i) {
 
 		write(fds1[1], &w, 1);
 
-		remove(sock);
+		remove(server_addr.sun_path);
 		close(fd_server);
 		close(fd_connect);
 		close(fds1[1]);
