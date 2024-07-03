@@ -278,6 +278,22 @@ void one_line_test(FILE *fp, FILE *copy, void (*f)(struct timespec*), testInfo *
 	}
 	fprintf(fp,"%ld.%09ld,\n",average->tv_sec, average->tv_nsec);
 
+	if (!isFirstIteration)
+  {
+    char ch;
+    while (1)
+    {
+      ch=fgetc(copy);
+      if (ch == '\n')	break;
+      fputc(ch,fp);
+    }
+  } else {
+    fprintf(fp, "%10s", info->name);
+    fprintf(fp, "        sum:,");
+  }
+  fprintf(fp,"%ld.%09ld,\n",sum->tv_sec, sum->tv_nsec);
+
+
 	free(sum);
 	free(average);
 	free(timeArray);
