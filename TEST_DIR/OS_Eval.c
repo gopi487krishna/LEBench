@@ -1150,6 +1150,18 @@ enum TEST_NAME parse_testname(const char* testname_str)
     return ALL;
   else if (!strcmp(testname_str, "huge_munmap"))
     return HUGE_MUNMAP;
+  else if (!strcmp(testname_str, "big_munmap"))
+    return BIG_MUNMAP;
+  else if (!strcmp(testname_str, "mid_munmap"))
+    return MID_MUNMAP;
+  else if (!strcmp(testname_str, "small_munmap"))
+    return SMALL_MUNMAP;
+  else if (!strcmp(testname_str, "huge_fork"))
+    return HUGE_FORK;
+  else if (!strcmp(testname_str, "big_fork"))
+    return BIG_FORK;
+  else if (!strcmp(testname_str, "fork"))
+    return FORK;
   else
   {
     printf("Test not implemented\n");
